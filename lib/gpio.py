@@ -6,10 +6,12 @@ class FakeOnionGpio:
         self.pin = pin
 
     def setOutputDirection(self, defaultVal):
-        print(f"#{self.pin}: Set to output direction with {defaultVal}")
+        print(
+            "#{}: Set to output direction with {}".format(self.pin, defaultVal)
+        )
 
     def setValue(self, val):
-        print(f"#{self.pin}: Set value to {val}")
+        print("#{}: Set value to {}".format(self.pin, val))
 
 
 class GPIO:

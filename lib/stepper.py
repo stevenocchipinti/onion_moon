@@ -29,7 +29,7 @@ class Stepper:
             self._step(-1)
 
     def set_percentage(self, percentage):
-        desired_step = round(percentage * self.range)
+        desired_step = int(round(percentage * self.range))
         steps = desired_step - self.current_step
         if steps > 0:
             self.forward(steps)
