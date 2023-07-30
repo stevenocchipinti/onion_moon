@@ -3,6 +3,7 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from lib.stepper import Stepper
+from lib.moonphase import Moonphase
 
 stepper = Stepper(
     range=8,
@@ -12,4 +13,8 @@ stepper = Stepper(
     dry_mode=True
 )
 
-stepper.set_percentage(0.5)
+print("Querying the current moonphase")
+moonphase = Moonphase().current()
+
+print("Setting position to {}%".format(moonphase * 100))
+stepper.set_percentage(moonphase)
