@@ -6,11 +6,10 @@ from lib.stepper import Stepper
 from lib.moonphase import Moonphase
 
 stepper = Stepper(
-    range=8,
-    pins=[17, 18, 22, 23],
+    range=2048,
+    pins=[0, 11, 2, 3],
     half_stepping=False,
-    persist_to_file="current_step.txt",
-    dry_mode=True
+    persist_to_file="current_step.txt"
 )
 
 print("Querying the current moonphase")
