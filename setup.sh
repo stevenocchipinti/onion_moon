@@ -1,2 +1,2 @@
 opkg update
-opkg install python-light pyOnionGpio
+opkg install python-light pyOnionGpio curl

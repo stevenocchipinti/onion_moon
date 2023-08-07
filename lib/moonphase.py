@@ -1,6 +1,6 @@
 import os
 import json
-import urllib
+import subprocess
 
 
 class Moonphase:
@@ -20,9 +20,10 @@ class Moonphase:
             "?unitGroup=metric&elements=moonphase&include=current"
             "&key={}&contentType=json"
         ).format(location, api_key)
-        resp = urllib.urlopen(endpoint)
 
-        self.data = json.loads(resp.read())
+        command = "curl -s '{}'".format(endpoint)
+        output = subprocess.check_output(command, shell=True)
+        self.data = json.loads(output)
 
     def current(self):
         return self.data["currentConditions"]["moonphase"]

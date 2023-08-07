@@ -9,6 +9,7 @@ class Stepper:
         self,
         range,
         pins,
+        delay=0.05,
         half_stepping=False,
         persist_to_file=None,
         dry_mode=False
@@ -18,7 +19,7 @@ class Stepper:
         self.sequencer = StepperSequencer(len(self.pins), half_stepping)
         self.file = persist_to_file
         self.current_step = self._load_current_step_from_file()
-        self.gpio = GPIO(pins=pins, dry_mode=dry_mode)
+        self.gpio = GPIO(pins=pins, delay=delay, dry_mode=dry_mode)
 
     def forward(self, steps=1):
         for _ in range(steps):
@@ -36,8 +37,8 @@ class Stepper:
         elif steps < 0:
             self.backward(abs(steps))
 
-    def reset(self):
-        self.set_percentage(0)
+    def off(self):
+        self.gpio.set_all([0, 0, 0, 0])
 
     # Private methods
 
