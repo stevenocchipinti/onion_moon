@@ -7,7 +7,7 @@ from lib.moonphase import Moonphase
 
 stepper = Stepper(
     range=2048,
-    pins=[0, 2, 3, 11],
+    pins=[3, 2, 1, 0],
     delay=0.05,
     half_stepping=False,
     persist_to_file="current_step.txt"
