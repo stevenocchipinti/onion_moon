@@ -10,7 +10,7 @@ stepper = Stepper(
     pins=[3, 2, 1, 0],
     delay=0.05,
     half_stepping=False,
-    persist_to_file="current_step.txt"
+    persist_to_file="/current_step.txt"
 )
 
 try:
